@@ -260,8 +260,10 @@ pub trait SourceCode: Send + Sync {
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct LabeledSpan {
     #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
-    label: Option<String>,
-    span: SourceSpan,
+    /// The label
+    pub label: Option<String>,
+    /// The span
+    pub span: SourceSpan,
     primary: bool,
 }
 
